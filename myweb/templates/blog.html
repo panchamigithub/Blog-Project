@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+   <body>
+    <form action="" method="POST">
+        {% csrf_token %}
+       <div align="center" style="color:blue">
+        <label >Post Your Blog Here...</label><br>
+        <textarea rows=4 name="blog"></textarea><br>
+        <input type="submit" value="Post Now">
+           </div>
+      </form>
+   </body>
+</html>

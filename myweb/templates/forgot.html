@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgot Password </title>
+</head>
+<body>
+<form action="" method="post">
+     {% csrf_token %}
+<div style="bgcolor:pink; margin:2em; margin-top:5em; border:solid 2px; border-color:blue; padding:15px;" align="center" >
+    <label>
+        <label>Username:<input type="text" name="usr"></label>
+        <p><strong>Please answer the security question</strong></p><br>
+        <br>
+
+        Which is your favourite color?
+    </label><br><br><br>
+
+    <label><select name="color">
+                            <option value="Red">Red</option>
+                           <option value="Blue">Blue</option>
+                           <option value="Green">Green</option>
+                           <option value="Yellow">Yellow</option>
+                           <option value="Purple">Purple</option>
+                           <option value="Black">Black</option>
+                           <option value="White">White</option>
+                           <option value="Orange">Orange</option>
+                           <option value="Brown">Brown</option>
+                           <option value="Grey">Grey</option>
+                           <option value="Pink">Pink</option>
+    </select>
+    </label>
+    <input type="submit" value="Submit">
+
+</div>
+    </form>
+</body>
+</html>

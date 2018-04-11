@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Register</title>
+
+	</head>
+	
+               
+    <body>
+                 <form method="POST" action = "" >
+              {% csrf_token %} 
+
+                  <table align="center" cellspacing="2" cellpadding="4">
+                       <tr><th></th><th>Registeration</th></tr>
+                       <tr>
+                         <td>Username:<td>
+                         <td><input type="text" name="usr"></td>
+
+                       </tr>
+                       <tr>
+                         <td>Name:<td>
+                         <td><input type="text" name="name"></td>
+
+                       </tr>
+                       
+                       <tr>
+                         <td>E-mail:<td>
+                         <td><input type="email" name="email"></td>
+
+                       </tr>
+                       <tr>
+                         <td>Mobile No:<td>
+                         <td><input type="text" name="mob"></td>
+
+                       </tr>
+                       <tr>
+                         <td>Password:<td>
+                         <td><input type="password" name="pwd"></td>
+
+                       
+                       <tr>
+                         <td>City:<td>
+                         <td><input type="text" name="city"></td>
+
+                       </tr>
+                       <tr>
+                         <td>Which is your favourite color?<td>
+                         <td><select name="color">
+                            <option value="Red">Red</option>
+                           <option value="Blue">Blue</option>
+                           <option value="Green">Green</option>
+                           <option value="Yellow">Yellow</option>
+                           <option value="Purple">Purple</option>
+                           <option value="Black">Black</option>
+                           <option value="White">White</option>
+                           <option value="Orange">Orange</option>
+                           <option value="Brown">Brown</option>
+                           <option value="Grey">Grey</option>
+                           <option value="Pink">Pink</option>
+
+
+                       </select></td>
+
+                       </tr>
+
+                       <tr>
+                         <td><td>
+                         <td><input type="submit" value="Register"></td>
+
+                       </tr>
+
+                  </table>
+
+			
+                </form>
+    </body>
+	
+</html>

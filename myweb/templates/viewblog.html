@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View blog</title>
+</head>
+<body>
+
+
+ <div align="center" style="color:blue">
+        <label > Your Blogs...</label><br>
+        <table cellpadding="10" cellspacing="15">
+
+            {% for d in data %}
+            <tr style="border:1px;" bgcolor="grey">
+               <td>{{d.blogp}}</td>
+
+            </tr>
+
+{% endfor %}
+
+        </table>
+           </div>
+</body>
+</html>

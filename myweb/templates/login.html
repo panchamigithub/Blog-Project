@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>Login here</title>
+
+	</head>
+	
+               
+		<body>
+		<form method="POST" action="">
+			 {% csrf_token %}
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td><input type="text" name="usr"></td>
+			</tr>
+			<tr>
+			<td>Password:</td>
+		    <td><input type="password" name="pwd"></td>
+			</tr>
+
+			<tr>
+			<td></td>
+		    <td><input type="submit" value="Login"></td>
+			</tr>
+
+			<tr>
+			<td></td>
+		    <td><a href="/myweb/forgot">Forgot Password</a></td>
+			</tr>
+
+		</table>
+        </form>
+
+		</body>
+	
+</html>
