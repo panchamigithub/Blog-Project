@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+'''mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -12,14 +12,26 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
+
+'''
+
 from django.urls import path,include
 
+from django.conf.urls import url, include
+from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mypage/', include('mypage.urls')),
     path('myweb/', include('myweb.urls')),
-    #path('mypage/', mypage.templates.page1),
+    url(r'^admin/', admin.site.urls),
+    url(r'^blogapirest/', include('BlogAPI.urls')),
 ]
+
+
+'''
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+'''

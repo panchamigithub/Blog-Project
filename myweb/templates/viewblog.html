@@ -8,12 +8,17 @@
 
 
  <div align="center" style="color:blue">
-        <label > Your Blogs...</label><br>
+        <label >Your Blogs...</label><br>
+         <div align="right" style="padding:35px;">
+              <a href="/myweb/logout">Logout</a>
+          </div>
         <table cellpadding="10" cellspacing="15">
 
             {% for d in data %}
             <tr style="border:1px;" bgcolor="grey">
-               <td>{{d.blogp}}</td>
+                <td><b>{{d.title}}</b></td>
+               <td style="color:white;">{{d.blogp}}</td>
+                <td style="color:red;"><a href="/myweb/edit/{{d.pk}}">Edit</a></td>
 
             </tr>
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mypage',
     'myweb',
     'rest_framework',
+    'BlogAPI',
 ]
 
 MIDDLEWARE = [

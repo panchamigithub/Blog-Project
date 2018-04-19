@@ -8,10 +8,15 @@
     <form action="" method="POST">
         {% csrf_token %}
        <div align="center" style="color:blue">
-        <label >Post Your Blog Here...</label><br>
-        <textarea rows=4 name="blog"></textarea><br>
+        <label >Post Your Blog Here...</label><br><br><br>
+          <div align="right" style="padding:35px;">
+              <a href="/myweb/logout">Logout</a>
+          </div>
+        <font>Title:</font><input type="text" name="title"><br>
+           <br>
+        <textarea rows="15" cols="50" name="blog"></textarea><br>
         <input type="submit" value="Post Now">
-           </div>
+       </div>
       </form>
    </body>
 </html>

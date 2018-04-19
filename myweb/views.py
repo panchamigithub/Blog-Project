@@ -4,8 +4,8 @@ from .models import register,blog
 
 
 # Create your views here.
-'''
 
+'''
 def registration(request):
     if request.method == "POST":
         form = Reg(request.POST)
@@ -25,8 +25,8 @@ def registration(request):
     else:
         form = Reg()
         return render(request,'register.html')
-
 '''
+
 def registration(request):
     if request.method == "POST":
       if(request.POST.get('usr') and request.POST.get('name') and request.POST.get('email') and request.POST.get('mob') and request.POST.get('pwd') and request.POST.get('city')):
@@ -61,7 +61,7 @@ def login(request):
                   return render(request,'home.html')
 
             except register.DoesNotExist:
-                return render(request, 'login.html')
+                return render(request, 'index.html')
 
         else:
             return render(request, 'login.html')
@@ -107,13 +107,43 @@ def viewblog(request):
     else:
         return render(request,'login.html')
 
+
+
+def editblog(request,pk):
+    id=pk
+    if('username' in request.session):
+        uname = request.session['username']
+        data=blog.objects.get(username=uname,id=id)
+        return render(request,'edit.html',{'data':data,})
+    else:
+        return render(request,'login.html')
+
+
+
+def updateblog(request,pk):
+    id=pk
+    if('username' in request.session):
+        uname = request.session['username']
+        data=blog.objects.get(username=uname,id=id)
+        data.blogp=request.POST.get('blog')
+        data.save()
+        data1=blog.objects.filter(username=uname)
+        return render(request,'viewblog.html',{'data':data1,})
+    else:
+        return render(request,'login.html')
+
+
+
 def security_question(request):
      if request.method=='POST':
-         uname = request.POST.get('usr')
-         data = register.objects.get(username=uname)
+         usr = request.POST.get('usr')
+         data = register.objects.get(username=usr)
          answer=request.POST.get('color')
+         #print(data.ans)
          if(data.ans==answer):
-             return render(request,'change_password.html',{'data':uname})
+             request.session['username'] = usr
+             return render(request,'change_password.html')
+
          else:
              return render(request,'login.html')
      else:
@@ -121,24 +151,29 @@ def security_question(request):
 
 def Password_change(request):
     if request.method=='POST':
-        usr = request.POST.get('usr')
+        usr = request.session['username']
         new_pwd=request.POST.get('pwd')
 
         try:
             obj=register.objects.get(username=usr)
             obj.password=new_pwd
             obj.save()
-            return render(register, 'login.html')
+            del request.session['username']
+            return render(request, 'login.html')
 
         except register.DoesNotExist:
             return render(request, 'change_password.html')
 
-        ''' 
+    else:
+        return render(request, 'change_password.html')
+
+'''  
         usr = request.POST.get('usr')
-        
+
      register.objects.filter(username='panchu123').update(password=new_pwd)
 
         return render(register,'login.html')
     else:
       return render(request, 'change_password.html')
-        '''
+
+'''

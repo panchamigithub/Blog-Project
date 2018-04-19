@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post</title>
+</head>
+<body>
+<form action="updateblog/" method="post">
+     {% csrf_token %}
+<div align="center" style="color:blue">
+        <label >Edit Your Blog Here...</label><br><br><br>
+          <div align="right" style="padding:35px;">
+              <a href="/myweb/logout">Logout</a>
+          </div>
+
+        <font>Title:</font><input type="text" name="title" disabled="disabled" value="{{data.title}}">
+        <br>
+        <br>
+        <textarea rows="15" cols="50" name="blog" value="">{{data.blogp}}</textarea><br>
+        <input type="submit" value="Update">
+       </div>
+</form>
+</body>
+</html>
